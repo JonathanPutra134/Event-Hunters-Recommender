@@ -1,0 +1,2 @@
+for entering the virtual env
+env/Scripts/activate
