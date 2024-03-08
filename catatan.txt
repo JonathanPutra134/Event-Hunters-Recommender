@@ -1,2 +1,13 @@
 for entering the virtual env
 env/Scripts/activate
+
+
+To run the flask app: 
+flask run --debug 
+for update the dependencies in requirements.txt (u can use this to install all required packages on another device)
+pip freeze > requirements.txt
+
+for installing the package from requirements.txt: 
+pip install -r requirements.txt
+
+For generating

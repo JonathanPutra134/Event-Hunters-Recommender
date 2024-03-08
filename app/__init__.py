@@ -1,10 +1,11 @@
-# app/__init__.py
-
 from flask import Flask
+from app.db import init_db
+import os
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URL')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Import routes or other components
-from app.routes import api
+init_db(app)  # Call init_db to initialize the db instance
 
-# Additional initialization or configuration code
+from app.routes import api  # Import routes after db is defined
