@@ -1,5 +1,6 @@
 from app.db import db
 from sqlalchemy import ARRAY
+import uuid
 
 class Events(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -52,3 +53,9 @@ class Users(db.Model):
     name = db.Column(db.String(255))
     longitude = db.Column(db.String(255))
     latitude = db.Column(db.String(255))
+
+class Sessions(db.Model):
+    id = db.Column(db.String(36), primary_key=True, default=str(uuid.uuid4))
+    user_id = db.Column(db.Integer)
+    created_at = db.Column(db.TIMESTAMP(timezone=True))
+    expiration = db.Column(db.TIMESTAMP(timezone=True))
