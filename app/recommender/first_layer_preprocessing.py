@@ -221,7 +221,6 @@ def get_candidate_events(events_content_based_df, cosine_similarity_matrix, view
 
 def get_weighted_tfidf(tfidf_matrix, indices, weights):
     try:
-        print(indices)
         weighted_tfidf = np.zeros(tfidf_matrix.shape[1])
 
         for index in indices:
