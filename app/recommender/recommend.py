@@ -69,7 +69,7 @@ class Recommender:
         latuser = float(user["latitude"].iloc[0])
         lonuser = float(user["longitude"].iloc[0])
         top_events = get_events_score(latuser, lonuser, candidate_events)
-        top_events = top_events.nlargest(20, 'final_score')[['event_id', 'final_score', 'distance(km)', 'days_before_registration', 'interaction_score', 'similarity_score']]
+        top_events = top_events.nlargest(10, 'final_score')[['event_id', 'final_score', 'distance(km)', 'days_before_registration', 'interaction_score', 'similarity_score']]
         top_events['distance(km)'] = top_events['distance(km)'].round(2)
         top_events['final_score'] = top_events['final_score'].round(2)
         top_events['similarity_score'] = top_events['similarity_score'].round(2)
