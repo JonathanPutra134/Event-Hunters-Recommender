@@ -191,7 +191,14 @@ def get_user_profile(viewed_events_tfidf, bookmarked_events_tfidf, attended_even
     try:
         user_profile = viewed_events_tfidf + bookmarked_events_tfidf + attended_events_tfidf + rated_events_tfidf
         user_profile = user_profile / np.linalg.norm(user_profile)
-        return np.asarray(user_profile)
+      
+        user_profile = np.asarray(user_profile)
+        feature_names = tfidf_vectorizer.get_feature_names_out()
+        relevance_scores = user_profile[0]  # No need for .A
+        df = pd.DataFrame({'token': feature_names, 'relevance': relevance_scores})
+        df = df.sort_values(by='relevance', ascending=False).reset_index(drop=True)
+        print(df.head(50))
+        return user_profile
     except Exception as e:
         import traceback
         print(f"Error in get_user_profile: {str(e)}")
