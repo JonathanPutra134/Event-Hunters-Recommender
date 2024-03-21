@@ -180,7 +180,8 @@ def get_rated_events_tfidf(rated_weight_dict, rated_events_indices, tfidf_matrix
         for index in rated_events_indices:
             weight = rated_weight_dict.get(index + 1, None)
             rated_events_tfidf += weight * tfidf_matrix_events[index]
-
+        print("THIS IS RATED TF IDF")
+        print(np.asarray(rated_events_tfidf))
         return np.asarray(rated_events_tfidf)
     except Exception as e:
         import traceback
@@ -192,6 +193,8 @@ def get_user_profile(viewed_events_tfidf, bookmarked_events_tfidf, attended_even
     try:
         user_profile = viewed_events_tfidf + bookmarked_events_tfidf + attended_events_tfidf + rated_events_tfidf
         user_profile = user_profile / np.linalg.norm(user_profile)
+        print("THIS IS USER PROFILE")
+        print(np.asarray(user_profile))
         return np.asarray(user_profile)
     except Exception as e:
         import traceback
@@ -221,12 +224,12 @@ def get_candidate_events(events_content_based_df, cosine_similarity_matrix, view
 
 def get_weighted_tfidf(tfidf_matrix, indices, weights):
     try:
-        print(indices)
         weighted_tfidf = np.zeros(tfidf_matrix.shape[1])
 
         for index in indices:
             weighted_tfidf += weights * tfidf_matrix[index]
-
+        print("THIS IS WEIGHTED TF IDF")
+        print(np.asarray(weighted_tfidf))
         return np.asarray(weighted_tfidf)
     except Exception as e:
         import traceback
