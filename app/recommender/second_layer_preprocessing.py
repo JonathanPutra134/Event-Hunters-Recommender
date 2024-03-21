@@ -190,7 +190,7 @@ def calculate_final_score(distance_score, closeness_date_score, popularity_score
         weight_closeness_date = 0.2
         weight_popularity = 0.1
         weight_similarity = 0.3
-        return (weight_distance * distance_score) + (weight_closeness_date * closeness_date_score) + (weight_popularity * popularity_score) + ((weight_similarity * similarity_score))                  
+        return (weight_distance * distance_score) + (weight_closeness_date * closeness_date_score) + (weight_popularity * popularity_score) + (weight_similarity * similarity_score)                  
     except Exception as e:
         import traceback
         print(f"Error in calculate_final_score : {str(e)}")
