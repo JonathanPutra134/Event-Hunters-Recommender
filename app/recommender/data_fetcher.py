@@ -7,7 +7,7 @@ class DataFetcher:
     def get_events(self):
         try:
             # Perform a query to select all rows from the 'events' table
-            events = Events.query.all()
+            events = Events.query.order_by(Events.id).all()
             # Convert the result to a Pandas DataFrame
             events_df = pd.DataFrame([
                 {
