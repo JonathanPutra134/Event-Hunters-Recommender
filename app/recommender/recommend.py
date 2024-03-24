@@ -51,7 +51,7 @@ class Recommender:
    
         tfidf_vectorizer = TfidfVectorizer(stop_words=stopword_list)
         tfidf_matrix_events = get_item_profile(tfidf_vectorizer, events_textdata)
-        viewed_events_tfidf = get_weighted_tfidf(tfidf_matrix_events, viewed_events_indices, 1)
+        viewed_events_tfidf = get_weighted_tfidf(tfidf_matrix_events, viewed_events_indices, 0.1)
         bookmarked_events_tfidf = get_weighted_tfidf(tfidf_matrix_events, bookmarked_events_indices, 2)
         attended_events_tfidf = get_weighted_tfidf(tfidf_matrix_events, attended_events_indices, 3)
         rated_events_tfidf = get_rated_events_tfidf(rated_weight_dict, rated_events_indices, tfidf_matrix_events)
