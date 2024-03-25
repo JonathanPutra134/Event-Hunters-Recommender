@@ -22,7 +22,7 @@ def index(user_id):
 
             # Convert the result to a JSON response using jsonify
             result_json = jsonify(result.to_dict(orient='records'))
-
+            print(f"User with UserID {user_id} successfully get the recommendations")
             # Return the JSON response
             return result_json
         
